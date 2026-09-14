@@ -1,0 +1,275 @@
+/* ===== RESET E CONFIGURAÇÕES GERAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== CABEÇALHO ===== */
+.header-bg {
+    background: linear-gradient(135deg, #2c3e50, #4a6fa5);
+    color: white;
+    padding: 20px 0;
+}
+
+.header-bg h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.header-bg p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ===== MENU DE NAVEGAÇÃO (Navbar Bootstrap) ===== */
+.navbar-maomao {
+    background-color: #1a252f !important;
+}
+
+.navbar-maomao .nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-maomao .nav-link:hover {
+    color: #f1c40f !important;
+}
+
+.navbar-maomao .navbar-brand {
+    color: #f1c40f !important;
+    font-weight: 700;
+}
+
+/* ===== CARROSSEL ===== */
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.carousel-caption {
+    bottom: 30%;
+}
+
+.carousel-caption h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ===== SEÇÕES GERAIS ===== */
+.section-padding {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+}
+
+/* ===== CARDS DE PRODUTOS ===== */
+.card-produto {
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-produto img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-produto .card-title {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.card-produto .card-text {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.card-produto .preco {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+/* ===== BADGES DE CATEGORIA ===== */
+.categoria-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-acessorios {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.badge-racoes {
+    background-color: #f39c12;
+    color: white;
+}
+
+.badge-higiene {
+    background-color: #3498db;
+    color: white;
+}
+
+/* ===== CARDS DE SERVIÇOS ===== */
+.card-servico {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card-servico:hover {
+    transform: scale(1.02);
+}
+
+.card-servico img {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* ===== FORMULÁRIOS ===== */
+.form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #4a6fa5;
+    box-shadow: 0 0 0 0.2rem rgba(74, 111, 165, 0.25);
+}
+
+.form-section-title {
+    color: #4a6fa5;
+    font-weight: 700;
+    margin: 25px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eef2f7;
+}
+
+/* ===== BOTÕES ===== */
+.btn-maomao {
+    background-color: #4a6fa5;
+    border: none;
+    font-weight: 600;
+    padding: 10px 30px;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.btn-maomao:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* ===== RODAPÉ ===== */
+.footer-bg {
+    background-color: #1a252f;
+    color: #bdc3c7;
+    padding: 40px 0 20px 0;
+}
+
+.footer-bg h5 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-bg a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-bg a:hover {
+    color: #f1c40f;
+}
+
+.footer-bg address {
+    color: #bdc3c7;
+}
+
+.footer-copyright {
+    border-top: 1px solid #2c3e50;
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ===== ACESSIBILIDADE ===== */
+/* Foco visível em todos os elementos interativos */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #f1c40f;
+    outline-offset: 2px;
+}
+
+/* Skip link - permite pular direto para o conteúdo (leitores de tela) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #4a6fa5;
+    color: white;
+    padding: 8px 16px;
+    z-index: 1000;
+    text-decoration: none;
+    border-radius: 0 0 5px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+    color: white;
+}
