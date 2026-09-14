@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Maomao - Serviços e Agendamento</title>
+
+    <!-- ===== BOOTSTRAP 5 CSS ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- ===== CSS PERSONALIZADO ===== -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== SKIP LINK (ACESSIBILIDADE) ===== -->
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header class="header-bg text-center">
+        <div class="container">
+            <h1>🐶 PetShop Maomao</h1>
+            <p>Seu pet merece o melhor cuidado!</p>
+            <p id="saudacao" aria-live="polite"></p>
+        </div>
+    </header>
+
+    <!-- ===== MENU DE NAVEGAÇÃO ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-maomao sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🐾 Maomao</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Abrir menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main id="conteudo-principal" class="section-padding">
+        <div class="container">
+
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Banho e tosa com a opção de tele-busca para sua comodidade</p>
+
+            <!-- ===== CARDS DE SERVIÇOS ===== -->
+            <div class="row mb-5">
+                <!-- Serviço 1: Sem Tele-busca -->
+                <div class="col-md-6 mb-4">
+                    <div class="card card-servico">
+                        <img src="imagens/banho-tosa.jpg"
+                             class="card-img-top"
+                             alt="Foto de um cachorro recebendo banho e tosa em um salao de petshop com profissional utilizando secador e produtos de qualidade, o dono traz e busca o pet no estabelecimento, sem servico de tele-busca">
+                        <div class="card-body">
+                            <h3 class="card-title">Banho e Tosa - Sem Tele-busca</h3>
+                            <p class="card-text">
+                                Serviço completo de banho e tosa para o seu pet. Inclui banho com
+                                produtos de qualidade, secagem, escovação, corte de unhas, limpeza
+                                de ouvidos e perfume. O proprietário deve trazer e buscar o pet
+                                no estabelecimento.
+                            </p>
+                            <p class="preco">R$ 70,00</p>
+                            <p><span class="badge bg-secondary">Tele-busca: Não</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Serviço 2: Com Tele-busca -->
+                <div class="col-md-6 mb-4">
+                    <div class="card card-servico">
+                        <img src="imagens/banho-tosa-tele.jpg"
+                             class="card-img-top"
+                             alt="Foto de um cachorro sendo transportado em veiculo do petshop para o servico de banho e tosa com tele-busca, profissional recolhendo o pet na residencia do dono dentro de um raio de 10 km">
+                        <div class="card-body">
+                            <h3 class="card-title">Banho e Tosa - Com Tele-busca</h3>
+                            <p class="card-text">
+                                Serviço completo de banho e tosa com a comodidade da tele-busca.
+                                Inclui banho com produtos de qualidade, secagem, escovação,
+                                corte de unhas, limpeza de ouvidos e perfume. Além disso,
+                                oferecemos o serviço de busca e entrega do pet em sua residência
+                                dentro de um raio de 10 km do estabelecimento.
+                            </p>
+                            <p class="preco">R$ 100,00</p>
+                            <p><span class="badge bg-success">Tele-busca: Sim</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== FORMULÁRIO DE AGENDAMENTO ===== -->
+            <section id="agendamento" class="mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="form-container">
+                            <h2 class="section-title">Agendar Serviço</h2>
+                            <p class="section-subtitle">Escolha o serviço, método e horário</p>
+
+                            <!--
+                                FORMULÁRIO DE AGENDAMENTO
+                                - Seleção do serviço (select)
+                                - Método: tele-busca ou entrega no local (radio buttons)
+                                - Data (date - calendário)
+                                - Horário (time)
+                                Validação via JavaScript (função validarAgendamento)
+                            -->
+                            <form id="form-agendamento"
+                                  onsubmit="return validarAgendamento()"
+                                  novalidate
+                                  aria-label="Formulário de agendamento de serviços">
+
+                                <!-- Seleção do Serviço -->
+                                <div class="mb-3">
+                                    <label for="servico-agendamento" class="form-label">
+                                        Serviço <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="servico-agendamento"
+                                            name="servico" required
+                                            aria-required="true"
+                                            aria-describedby="help-servico">
+                                        <option value="">-- Selecione um serviço --</option>
+                                        <option value="banho-tosa-sem">
+                                            Banho e Tosa - Sem Tele-busca (R$ 70,00)
+                                        </option>
+                                        <option value="banho-tosa-com">
+                                            Banho e Tosa - Com Tele-busca (R$ 100,00)
+                                        </option>
+                                    </select>
+                                    <div id="help-servico" class="form-text">
+                                        Escolha o serviço de banho e tosa desejado.
+                                    </div>
+                                </div>
+
+                                <!-- Método de Agendamento (Radio Buttons) -->
+                                <fieldset class="mb-3">
+                                    <legend class="form-label">
+                                        Método de Agendamento <span class="text-danger">*</span>
+                                    </legend>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio"
+                                               name="metodo" id="metodo-tele" value="tele-busca">
+                                        <label class="form-check-label" for="metodo-tele">
+                                            🚐 Tele-busca (buscamos seu pet em casa)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio"
+                                               name="metodo" id="metodo-local" value="entrega-local">
+                                        <label class="form-check-label" for="metodo-local">
+                                            🏪 Entrega no local (você traz seu pet)
+                                        </label>
+                                    </div>
+                                </fieldset>
+
+                                <!-- Data do Agendamento (calendário) -->
+                                <div class="mb-3">
+                                    <label for="data-agendamento" class="form-label">
+                                        Data <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="date" class="form-control"
+                                           id="data-agendamento" name="data" required
+                                           aria-required="true"
+                                           aria-describedby="help-data">
+                                    <div id="help-data" class="form-text">
+                                        Selecione a data desejada para o agendamento.
+                                    </div>
+                                </div>
+
+                                <!-- Horário do Agendamento -->
+                                <div class="mb-3">
+                                    <label for="horario-agendamento" class="form-label">
+                                        Horário <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="time" class="form-control"
+                                           id="horario-agendamento" name="horario"
+                                           min="08:00" max="18:00" required
+                                           aria-required="true"
+                                           aria-describedby="help-horario">
+                                    <div id="help-horario" class="form-text">
+                                        Horário de funcionamento: 08h às 18h.
+                                    </div>
+                                </div>
+
+                                <!-- Botão de Envio -->
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-maomao btn-lg">
+                                        ✅ Confirmar Agendamento
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- Área de mensagem (preenchida via JavaScript) -->
+                            <div id="mensagem-agendamento" role="alert" aria-live="assertive"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="footer-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>📞 Contato</h5>
+                    <address>
+                        <p>PetShop Maomao</p>
+                        <p>Ilha da Baleia, 123 - Porto - Anta Gorda/RS</p>
+                        <p>Telefone: (11) 1234-5678</p>
+                        <p>E-mail: contato@maomaoling.com.br</p>
+                    </address>
+                </div>
+                <div class="col-md-4">
+                    <h5>🔗 Navegação</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="ajuda.html">Ajuda</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>🕐 Horário</h5>
+                    <p>Segunda a Sexta: 08h - 19h</p>
+                    <p>Sábado: 08h - 17h</p>
+                    <p>Domingo: Fechado</p>
+                    <p><small id="data-hora" aria-label="Data e hora atual"></small></p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 PetShop Maomao. Todos os direitos reservados.</p>
+                <p>Site desenvolvido por Pedro Quevedo para a disciplina de Fundamentos de Sistemas Web - Fase 2.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Maomao - Cadastro</title>
+
+    <!-- ===== BOOTSTRAP 5 CSS ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- ===== CSS PERSONALIZADO ===== -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== SKIP LINK (ACESSIBILIDADE) ===== -->
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header class="header-bg text-center">
+        <div class="container">
+            <h1>🐶 PetShop Maomao</h1>
+            <p>Seu pet merece o melhor cuidado!</p>
+            <p id="saudacao" aria-live="polite"></p>
+        </div>
+    </header>
+
+    <!-- ===== MENU DE NAVEGAÇÃO ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-maomao sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🐾 Maomao</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Abrir menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="cadastro.html">Cadastro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main id="conteudo-principal" class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+
+                    <h2 class="section-title">Cadastro de Cliente e Pet</h2>
+                    <p class="section-subtitle">Preencha os dados abaixo para se cadastrar</p>
+
+                    <div class="form-container">
+
+                        <!--
+                            FORMULÁRIO DE CADASTRO
+                            Elementos utilizados:
+                            - input: text, email, tel, number, date
+                            - select
+                            - radio button (sexo)
+                            - checkbox (autorizações)
+                            - textarea (observações)
+                            - placeholder em todos os campos
+                            - campos obrigatórios (required)
+                            Validação via JavaScript (função validarCadastro)
+                        -->
+                        <form id="form-cadastro"
+                              onsubmit="return validarCadastro()"
+                              novalidate
+                              aria-label="Formulário de cadastro de cliente e pet">
+
+                            <!-- ===== DADOS DO CLIENTE ===== -->
+                            <h3 class="form-section-title">📋 Dados do Cliente</h3>
+
+                            <div class="row">
+                                <!-- Nome completo -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="nome" class="form-label">
+                                        Nome Completo <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="nome"
+                                           name="nome" placeholder="Ex: João da Silva"
+                                           required aria-required="true">
+                                </div>
+
+                                <!-- CPF -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="cpf" class="form-label">
+                                        CPF <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="cpf"
+                                           name="cpf" placeholder="000.000.000-00"
+                                           maxlength="14" required aria-required="true"
+                                           pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Sexo (Radio Buttons) -->
+                                <div class="col-md-6 mb-3">
+                                    <fieldset>
+                                        <legend class="form-label">Sexo</legend>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio"
+                                                   name="sexo" id="sexo-m" value="masculino">
+                                            <label class="form-check-label" for="sexo-m">Masculino</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio"
+                                                   name="sexo" id="sexo-f" value="feminino">
+                                            <label class="form-check-label" for="sexo-f">Feminino</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio"
+                                                   name="sexo" id="sexo-o" value="outro">
+                                            <label class="form-check-label" for="sexo-o">Outro</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <!-- Data de Nascimento -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="nascimento" class="form-label">Data de Nascimento</label>
+                                    <input type="date" class="form-control" id="nascimento"
+                                           name="nascimento">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- E-mail -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">
+                                        E-mail <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" id="email"
+                                           name="email" placeholder="exemplo@email.com"
+                                           required aria-required="true">
+                                </div>
+
+                                <!-- Telefone -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="telefone" class="form-label">
+                                        Telefone <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="tel" class="form-control" id="telefone"
+                                           name="telefone" placeholder="(11) 99999-9999"
+                                           required aria-required="true">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- CEP -->
+                                <div class="col-md-4 mb-3">
+                                    <label for="cep" class="form-label">CEP</label>
+                                    <input type="text" class="form-control" id="cep"
+                                           name="cep" placeholder="00000-000" maxlength="9">
+                                </div>
+
+                                <!-- Endereço -->
+                                <div class="col-md-8 mb-3">
+                                    <label for="endereco" class="form-label">Endereço</label>
+                                    <input type="text" class="form-control" id="endereco"
+                                           name="endereco" placeholder="Rua, número, complemento">
+                                </div>
+                            </div>
+
+                            <!-- Checkbox: receber novidades -->
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"
+                                           id="novidades" name="novidades">
+                                    <label class="form-check-label" for="novidades">
+                                        Desejo receber novidades e promoções por e-mail
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- ===== DADOS DO PET ===== -->
+                            <h3 class="form-section-title">🐾 Dados do Pet</h3>
+
+                            <div class="row">
+                                <!-- Nome do Pet -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="nome-pet" class="form-label">
+                                        Nome do Pet <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="nome-pet"
+                                           name="nome-pet" placeholder="Ex: Thor"
+                                           required aria-required="true">
+                                </div>
+
+                                <!-- Espécie (Select) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="especie-pet" class="form-label">Espécie</label>
+                                    <select class="form-select" id="especie-pet" name="especie-pet">
+                                        <option value="">-- Selecione --</option>
+                                        <option value="cao">Cão</option>
+                                        <option value="gato">Gato</option>
+                                        <option value="ave">Ave</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Raça -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="raca-pet" class="form-label">
+                                        Raça <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="raca-pet"
+                                           name="raca-pet" placeholder="Ex: Golden Retriever"
+                                           required aria-required="true">
+                                </div>
+
+                                <!-- Idade (Number) -->
+                                <div class="col-md-3 mb-3">
+                                    <label for="idade-pet" class="form-label">Idade (anos)</label>
+                                    <input type="number" class="form-control" id="idade-pet"
+                                           name="idade-pet" min="0" max="30"
+                                           placeholder="0">
+                                </div>
+
+                                <!-- Porte (Select) -->
+                                <div class="col-md-3 mb-3">
+                                    <label for="porte-pet" class="form-label">Porte</label>
+                                    <select class="form-select" id="porte-pet" name="porte-pet">
+                                        <option value="">--</option>
+                                        <option value="pequeno">Pequeno</option>
+                                        <option value="medio">Médio</option>
+                                        <option value="grande">Grande</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Observações (Textarea) -->
+                            <div class="mb-3">
+                                <label for="observacoes" class="form-label">Observações</label>
+                                <textarea class="form-control" id="observacoes"
+                                          name="observacoes" rows="3"
+                                          placeholder="Informe alergias, condições especiais, comportamento, etc."></textarea>
+                            </div>
+
+                            <!-- Botão de Envio -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-maomao btn-lg">
+                                    ✅ Realizar Cadastro
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Área de mensagem (preenchida via JavaScript) -->
+                        <div id="mensagem-cadastro" role="alert" aria-live="assertive"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="footer-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>📞 Contato</h5>
+                    <address>
+                        <p>PetShop Maomao</p>
+                        <p>Ilha da Baleia, 123 - Porto - Anta Gorda/RS</p>
+                        <p>Telefone: (11) 1234-5678</p>
+                        <p>E-mail: contato@maomaoling.com.br</p>
+                    </address>
+                </div>
+                <div class="col-md-4">
+                    <h5>🔗 Navegação</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="ajuda.html">Ajuda</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>🕐 Horário</h5>
+                    <p>Segunda a Sexta: 08h - 19h</p>
+                    <p>Sábado: 08h - 17h</p>
+                    <p>Domingo: Fechado</p>
+                    <p><small id="data-hora" aria-label="Data e hora atual"></small></p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 PetShop Maomao. Todos os direitos reservados.</p>
+                <p>Site desenvolvido por Pedro Quevedo para a disciplina de Fundamentos de Sistemas Web - Fase 2.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+petshop/
+├── index.html        
+├── produtos.html     
+├── servicos.html     
+├── cadastro.html     
+├── ajuda.html        
+├── css/
+│   └── style.css    
+├── js/
+│   └── script.js    
+└── imagens/
+    ├── banner1.jpg
+    ├── banner2.jpg
+    ├── banner3.jpg
+    ├── coleira.jpg
+    ├── brinquedo.jpg
+    ├── racao-seca.jpg
+    ├── racao-umida.jpg
+    ├── tapete-higienico.jpg
+    ├── fralda.jpg
+    ├── banho-tosa.jpg
+    └── banho-tosa-tele.jpg
